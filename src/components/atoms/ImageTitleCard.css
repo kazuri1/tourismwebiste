@@ -1,0 +1,52 @@
+.image-title-card {
+  width: 100%;
+}
+
+.image-wrap {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  width: 100%;
+  display: block;
+  background: transparent;
+  cursor: pointer;
+  border-radius: var(--radius-xl, 16px);
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius-xl, 16px);
+}
+
+.title-row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm, 8px);
+  padding-top: var(--spacing-sm, 8px);
+  color: var(--color-on-surface, #111);
+}
+
+.title-icon {
+  font-size: 20px;
+  color: var(--color-on-surface, #111);
+}
+
+.title-text {
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.title-main {
+}
+
+.title-sep {
+  opacity: 0.7;
+  padding: 0 4px;
+}
+
+.title-cat {
+  opacity: 0.8;
+}

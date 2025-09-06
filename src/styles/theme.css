@@ -1,0 +1,12 @@
+:root {
+  --color-primary: #ff8064;
+  --color-primary-hover: #ef6142;
+  --color-primary-active: #e55a3a;
+}
+
+a {
+  color: var(--color-primary);
+}
+a:hover {
+  color: var(--color-primary-hover);
+}

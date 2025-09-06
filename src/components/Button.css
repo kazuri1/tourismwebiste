@@ -1,0 +1,84 @@
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Custom button styles */
+.tourism-button {
+  transition: all 0.2s ease-in-out;
+  position: relative;
+}
+
+/* Enhanced click effect for filled buttons */
+.tourism-button[data-variant="filled"]:active {
+  transform: scale(0.98) !important;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Enhanced click effect for outline buttons */
+.tourism-button[data-variant="outline"]:active {
+  transform: scale(0.98) !important;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Override PulseUI button colors with !important */
+.tourism-button[data-variant="filled"] {
+  background-color: var(--color-primary) !important;
+  color: #ffffff !important;
+  border-color: var(--color-primary) !important;
+}
+
+.tourism-button[data-variant="filled"]:hover {
+  background-color: var(--color-primary-hover) !important;
+  color: #ffffff !important;
+  border-color: var(--color-primary-hover) !important;
+}
+
+.tourism-button[data-variant="filled"]:active,
+.tourism-button[data-variant="filled"]:focus,
+.tourism-button[data-variant="filled"]:focus-visible {
+  background-color: var(--color-primary-active) !important;
+  color: #ffffff !important;
+  border-color: var(--color-primary-active) !important;
+}
+
+.tourism-button[data-variant="outline"] {
+  background-color: transparent !important;
+  color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.tourism-button[data-variant="outline"]:hover {
+  background-color: #fff5f3 !important;
+  color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.tourism-button[data-variant="outline"]:active,
+.tourism-button[data-variant="outline"]:focus,
+.tourism-button[data-variant="outline"]:focus-visible {
+  background-color: #ffe8e4 !important;
+  color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+/* Hardcode override for PulseUI's default primary colors */
+.tourism-button {
+  --color-primary: #ff8064 !important;
+  --color-primary-hover: #ef6142 !important;
+  --color-button-primary: var(--color-primary) !important;
+  --color-button-primary-hover: var(--color-primary-hover) !important;
+}
+
+/* Additional specificity to override PulseUI's CSS variables */
+.tourism-button[data-variant="filled"] {
+  --color-button-primary: var(--color-primary) !important;
+  --color-button-primary-hover: var(--color-primary-hover) !important;
+  --color-button-primary-active: var(--color-primary-active) !important;
+  --color-button-primary-disabled: #9ca3af !important;
+  --color-button-primary-focus: var(--color-primary) !important;
+}

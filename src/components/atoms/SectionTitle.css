@@ -1,0 +1,20 @@
+.section-title {
+  display: inline-block;
+  padding-bottom: var(--spacing-xs, 4px);
+}
+
+.section-title-text {
+  margin: 0;
+  font-size: 2rem;
+  line-height: 1.2;
+  font-weight: 800;
+  color: var(--color-on-surface, #111);
+}
+
+.section-title-underline {
+  height: 3px;
+  width: 100%;
+  margin-top: var(--spacing-xs, 4px);
+  background: var(--color-primary, #ff8064);
+  border-radius: 2px;
+}

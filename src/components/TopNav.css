@@ -1,0 +1,189 @@
+/* TopNav component styles */
+
+/* Target navigation items with focused selectors */
+.tourism-topnav a,
+.tourism-topnav button,
+.tourism-topnav span,
+.tourism-topnav div {
+  font-size: 0.875rem !important; /* 14px */
+  font-weight: 500 !important;
+  text-transform: none !important;
+}
+
+/* Push navigation area to the right (keep brand/logo on left) */
+.tourism-topnav
+  :where([class*="desktopNavigation"], [class*="navigation"], nav) {
+  margin-left: auto !important;
+  justify-content: flex-end !important;
+  gap: 16px !important;
+}
+
+/* Force larger gap on any nav container within TopNav */
+.tourism-topnav
+  :where(nav, [class*="nav"], [class*="Navigation"], [class*="Nav"]) {
+  gap: 20px !important;
+  column-gap: 20px !important;
+}
+
+/* Ensure list wrappers also space items */
+.tourism-topnav
+  :where(nav, [class*="nav"], [class*="Navigation"], [class*="Nav"])
+  :where(ul, ol) {
+  gap: 20px !important;
+}
+
+/* Fallback: add spacing between adjacent children regardless of markup */
+.tourism-topnav
+  :where(nav, [class*="nav"], [class*="Navigation"], [class*="Nav"])
+  > *
+  + * {
+  margin-left: 16px !important;
+}
+
+/* Add horizontal padding to each navigation item for visual spacing */
+.tourism-topnav
+  :where([class*="navigation"], nav)
+  :where(a, button, [role="menuitem"]) {
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+}
+
+/* Ensure the padding is visually applied by making items inline-flex */
+.tourism-topnav
+  :where([class*="navigation"], nav)
+  :where(a, button, [role="menuitem"]) {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Add explicit spacing between list items inside navigation containers */
+.tourism-topnav
+  :where(nav, [class*="navigation"])
+  :where(ul, ol)
+  > li:not(:last-child) {
+  margin-right: 12px !important;
+}
+
+/* Add outer spacing between list items on desktop */
+@media (min-width: 769px) {
+  .tourism-topnav
+    :where([class*="desktopNavigation"], [class*="navigation"], nav)
+    :where(ul, ol)
+    > li {
+    margin-left: 6px !important;
+    margin-right: 6px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .tourism-topnav
+    :where([class*="navigation"], nav)
+    :where(a, button, [role="menuitem"]) {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+  }
+
+  .tourism-topnav
+    :where(nav, [class*="navigation"])
+    :where(ul, ol)
+    > li:not(:last-child) {
+    margin-right: 8px !important;
+  }
+
+  /* Mobile: slightly smaller gaps */
+  .tourism-topnav
+    :where(nav, [class*="nav"], [class*="Navigation"], [class*="Nav"]) {
+    gap: 12px !important;
+    column-gap: 12px !important;
+  }
+
+  .tourism-topnav
+    :where(nav, [class*="nav"], [class*="Navigation"], [class*="Nav"])
+    > *
+    + * {
+    margin-left: 10px !important;
+  }
+}
+
+/* Hover states for navigation items */
+.tourism-topnav a:hover,
+.tourism-topnav button:hover,
+.tourism-topnav span:hover,
+.tourism-topnav div:hover {
+  font-weight: 600 !important;
+}
+
+/* Responsive font sizes */
+@media (max-width: 768px) {
+  .tourism-topnav a,
+  .tourism-topnav button,
+  .tourism-topnav span,
+  .tourism-topnav div {
+    font-size: 0.8rem !important; /* 12.8px on mobile */
+  }
+}
+
+/* Right button styling for afterNavigation prop */
+.tourism-topnav button {
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 12px;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Responsive adjustments for button */
+@media (max-width: 768px) {
+  .tourism-topnav button {
+    padding: 0 8px;
+    font-size: 0.8rem;
+  }
+}
+
+/* Ensure mobile menu toggle sits at far right */
+@media (max-width: 768px) {
+  /* Make the top-level container a flex row if not already */
+  .tourism-topnav {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+
+  /* Reset navigation block so it doesn't consume the auto space on mobile */
+  .tourism-topnav
+    :where([class*="desktopNavigation"], [class*="navigation"], nav) {
+    margin-left: 0 !important;
+    flex: 1 1 auto;
+  }
+
+  /* Push the hamburger/toggle button to the far right.
+     We detect it via aria-expanded which is typical for menu toggles. */
+  .tourism-topnav :where(button[aria-expanded]) {
+    order: 4;
+    display: inline-flex;
+    align-items: center;
+    margin-left: 8px;
+  }
+
+  /* Keep brand/logo on the left, navigation in the middle on mobile */
+  .tourism-topnav :where([class*="brand"], img[alt*="logo" i]) {
+    order: 1;
+  }
+
+  .tourism-topnav :where([class*="navigation"], nav) {
+    order: 2;
+  }
+
+  /* Ensure actions container sits to the right of nav and before the toggle */
+  .tourism-topnav .topnav-actions {
+    order: 3;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 8px;
+  }
+}
