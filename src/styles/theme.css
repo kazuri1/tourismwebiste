@@ -1,7 +1,24 @@
-:root {
+:root,
+[data-theme="light"] {
   --color-primary: #ff8064;
   --color-primary-hover: #ef6142;
   --color-primary-active: #e55a3a;
+
+  --color-surface: #ffffff;
+  --color-on-surface: #1f2937;
+  --color-border: #e5e7eb;
+  --color-hover-surface: #f3f4f6;
+}
+
+[data-theme="dark"] {
+  --color-primary: #ff8064;
+  --color-primary-hover: #ff8f78;
+  --color-primary-active: #ef6142;
+
+  --color-surface: #0b0f14;
+  --color-on-surface: #e5e7eb;
+  --color-border: #1f2937;
+  --color-hover-surface: #111827;
 }
 
 a {

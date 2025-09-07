@@ -1,7 +1,5 @@
 import React from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
-import MainLayout from "./layouts/MainLayout";
 
 const Home: React.FC = () => {
   return (
@@ -12,14 +10,10 @@ const Home: React.FC = () => {
   );
 };
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <MainLayout />,
-    children: [{ index: true, element: <Home /> }],
-  },
-]);
-
 export default function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <main style={{ maxWidth: 1200, margin: "0 auto", padding: "16px" }}>
+      <Home />
+    </main>
+  );
 }

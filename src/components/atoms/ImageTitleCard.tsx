@@ -1,6 +1,6 @@
 import React from "react";
 import PlaceOutlinedIcon from "@mui/icons-material/PlaceOutlined";
-import "./ImageTitleCard.css";
+// Styles now imported globally from app/layout.tsx in Next.js
 
 export interface ImageTitleCardProps {
   imageUrl: string;

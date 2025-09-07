@@ -1,5 +1,5 @@
 import React from "react";
-import "./Tabs.css";
+// Styles now imported globally from app/layout.tsx in Next.js
 
 export interface TabItem {
   key: string;

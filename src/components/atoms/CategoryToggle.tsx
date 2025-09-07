@@ -4,7 +4,7 @@ import LocalFloristOutlinedIcon from "@mui/icons-material/LocalFloristOutlined";
 import GroupsOutlinedIcon from "@mui/icons-material/GroupsOutlined";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 import RestaurantOutlinedIcon from "@mui/icons-material/RestaurantOutlined";
-import "./CategoryToggle.css";
+// Styles now imported globally from app/layout.tsx in Next.js
 
 export type CategoryKey =
   | "all"

@@ -7,13 +7,12 @@
 html,
 body,
 #root {
-  height: 100%;
 }
 body {
   margin: 0;
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  color: #111;
-  background: #fff;
+  color: var(--color-on-surface);
+  background: var(--color-surface);
 }
 
 a {
@@ -49,8 +48,8 @@ button:focus-visible {
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    color: var(--color-on-surface);
+    background-color: var(--color-surface);
   }
   a:hover {
     color: #747bff;

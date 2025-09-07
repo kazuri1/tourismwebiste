@@ -1,8 +1,10 @@
+"use client";
 import React from "react";
 import { SimpleTopNav } from "pulseui-base";
+import Image from "next/image";
 import mysoreLogo from "../assets/mysorelogo.png";
 import { Button } from "./Button";
-import "./TopNav.css";
+// Styles imported globally from app/layout.tsx in Next.js
 
 export interface TopNavProps {
   /** Brand name to display */
@@ -68,22 +70,15 @@ export const TopNav: React.FC<TopNavProps> = ({
   ];
 
   return (
-    <SimpleTopNav
+    <div className="tourism-topnav-wrapper">
+      <SimpleTopNav
       brandLogo={
-        <div style={{ background: "transparent", padding: "0", margin: "0" }}>
-          <img
-            src={mysoreLogo}
-            alt="Mysore Tourism Logo"
-            style={{
-              height: "32px",
-              width: "auto",
-              background: "transparent",
-              border: "none",
-              borderRadius: "0",
-              display: "block",
-            }}
-          />
-        </div>
+        <Image
+          src={mysoreLogo}
+          alt="Mysore Tourism Logo"
+          height={32}
+          style={{ width: "auto" }}
+        />
       }
       brandName=""
       brandTitle=""
@@ -110,10 +105,11 @@ export const TopNav: React.FC<TopNavProps> = ({
       sx={{
         fontFamily:
           "Satoshi, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
-        "--pulseui-nav-bg": "#ffffff",
-        "--pulseui-nav-border": "#E5E7EB",
-        "--pulseui-nav-text": "#1F2937",
-        "--pulseui-nav-hover": "#F3F4F6",
+        // Bind Pulse UI nav tokens to our theme variables for live theme switching
+        "--pulseui-nav-bg": "var(--color-surface)",
+        "--pulseui-nav-border": "var(--color-border)",
+        "--pulseui-nav-text": "var(--color-on-surface)",
+        "--pulseui-nav-hover": "var(--color-hover-surface)",
         "--pulseui-nav-active": "var(--color-primary)",
         "--pulseui-nav-font-size": "0.875rem",
         "--pulseui-nav-font-weight": "500",
@@ -121,5 +117,6 @@ export const TopNav: React.FC<TopNavProps> = ({
       }}
       style={style}
     />
+    </div>
   );
 };

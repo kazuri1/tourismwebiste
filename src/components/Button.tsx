@@ -1,6 +1,6 @@
 import React from "react";
 import { Button as PulseUIButton } from "pulseui-base";
-import "./Button.css";
+// Styles now imported globally from app/layout.tsx in Next.js
 
 export interface ButtonProps {
   /** Button text content */

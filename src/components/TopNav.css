@@ -10,6 +10,37 @@
   text-transform: none !important;
 }
 
+/* Storybook fallback: inside transformed canvas, use sticky instead of fixed */
+#storybook-root .tourism-topnav,
+.sbdocs .tourism-topnav,
+.docs-story .tourism-topnav {
+  position: sticky !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+}
+
+/* Keep TopNav pinned to top across environments via wrapper */
+.tourism-topnav-wrapper {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  margin: 0 !important;
+  transform: none !important;
+  z-index: 1000 !important;
+  background: var(--pulseui-nav-bg, #ffffff) !important;
+  border-bottom: 1px solid var(--pulseui-nav-border, #e5e7eb) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+
+/* Inner component spans full width */
+.tourism-topnav {
+  width: 100% !important;
+}
+
 /* Push navigation area to the right (keep brand/logo on left) */
 .tourism-topnav
   :where([class*="desktopNavigation"], [class*="navigation"], nav) {
@@ -19,10 +50,17 @@
 }
 
 /* Force larger gap on any nav container within TopNav */
-.tourism-topnav
-  :where(nav, [class*="nav"], [class*="Navigation"], [class*="Nav"]) {
+.tourism-topnav :where(nav, [class*="nav"], [class*="Navigation"], [class*="Nav"]) {
   gap: 20px !important;
   column-gap: 20px !important;
+}
+
+/* Ensure any internal container defaults to space-between, not centered */
+.tourism-topnav :where([class*="container"], [class*="inner"], header) {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  width: 100% !important;
 }
 
 /* Ensure list wrappers also space items */
@@ -66,10 +104,7 @@
 
 /* Add outer spacing between list items on desktop */
 @media (min-width: 769px) {
-  .tourism-topnav
-    :where([class*="desktopNavigation"], [class*="navigation"], nav)
-    :where(ul, ol)
-    > li {
+  .tourism-topnav :where([class*="desktopNavigation"], [class*="navigation"], nav) :where(ul, ol) > li {
     margin-left: 6px !important;
     margin-right: 6px !important;
   }

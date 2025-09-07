@@ -1,0 +1,64 @@
+import { VideoHero } from "../components/organisms/VideoHero";
+import "../components/organisms/VideoHero.css";
+import { SectionTitle } from "../components/atoms/SectionTitle";
+import { Carousel } from "../components/Carousel";
+
+export default function HomePage() {
+  return (
+    <>
+      <VideoHero
+        src="https://cdn.coverr.co/videos/coverr-scenic-aerial-view-of-the-ocean-2307/1080p.mp4"
+        poster="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&q=80&auto=format&fit=crop"
+        height="70vh"
+        controls={false}
+        autoPlay
+        loop
+        muted
+      >
+        <div style={{ textAlign: "center" }}>
+          <h1 style={{ margin: 0, fontSize: "3rem" }}>Explore Mysore</h1>
+          <p style={{ marginTop: 12, fontSize: "1.125rem" }}>
+            Discover destinations, experiences, and plan your trip.
+          </p>
+        </div>
+      </VideoHero>
+      <div style={{ margin: "32px 16px 0" }}>
+        <SectionTitle>Top Destinations</SectionTitle>
+      </div>
+      <div style={{ margin: "8px 0 0" }}>
+        <Carousel
+          items={[
+            {
+              id: "1",
+              imageUrl:
+                "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1200&q=80&auto=format&fit=crop",
+              title: "Mysore Palace",
+              category: "Culture",
+            },
+            {
+              id: "2",
+              imageUrl:
+                "https://images.unsplash.com/photo-1542810634-71277d95dcbb?w=1200&q=80&auto=format&fit=crop",
+              title: "Chamundi Hills",
+              category: "Nature",
+            },
+            {
+              id: "3",
+              imageUrl:
+                "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80&auto=format&fit=crop",
+              title: "Brindavan Gardens",
+              category: "Garden",
+            },
+            {
+              id: "4",
+              imageUrl:
+                "https://images.unsplash.com/photo-1526779259212-939e64788e3c?w=1200&q=80&auto=format&fit=crop",
+              title: "St. Philomena's Church",
+              category: "Church",
+            },
+          ]}
+        />
+      </div>
+    </>
+  );
+}

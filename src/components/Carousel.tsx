@@ -1,5 +1,6 @@
+"use client";
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import "./Carousel.css";
+// Styles now imported globally from app/layout.tsx in Next.js
 import { ImageTitleCard } from "./atoms/ImageTitleCard";
 
 export interface CarouselItem {
