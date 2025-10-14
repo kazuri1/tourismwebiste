@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import CheckRoundedIcon from "@mui/icons-material/CheckRounded";
 import LocalFloristOutlinedIcon from "@mui/icons-material/LocalFloristOutlined";

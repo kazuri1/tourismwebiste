@@ -50,7 +50,8 @@
 }
 
 /* Force larger gap on any nav container within TopNav */
-.tourism-topnav :where(nav, [class*="nav"], [class*="Navigation"], [class*="Nav"]) {
+.tourism-topnav
+  :where(nav, [class*="nav"], [class*="Navigation"], [class*="Nav"]) {
   gap: 20px !important;
   column-gap: 20px !important;
 }
@@ -104,7 +105,10 @@
 
 /* Add outer spacing between list items on desktop */
 @media (min-width: 769px) {
-  .tourism-topnav :where([class*="desktopNavigation"], [class*="navigation"], nav) :where(ul, ol) > li {
+  .tourism-topnav
+    :where([class*="desktopNavigation"], [class*="navigation"], nav)
+    :where(ul, ol)
+    > li {
     margin-left: 6px !important;
     margin-right: 6px !important;
   }

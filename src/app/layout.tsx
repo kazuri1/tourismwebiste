@@ -6,7 +6,9 @@ import "../index.css";
 import "../components/TopNav.css";
 import "../components/atoms/SectionTitle.css";
 import "../components/Carousel.css";
+import "../components/atoms/CategoryToggle.css";
 import "../components/atoms/ImageTitleCard.css";
+import "../components/atoms/Tabs.css";
 
 import React from "react";
 import { TopNav } from "../components/TopNav";

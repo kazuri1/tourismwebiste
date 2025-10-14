@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useRef } from "react";
 // Styles now imported globally from app/layout.tsx in Next.js
 import { ImageTitleCard } from "./atoms/ImageTitleCard";
 
@@ -22,50 +22,7 @@ export const Carousel: React.FC<CarouselProps> = ({
   className,
 }) => {
   const viewportRef = useRef<HTMLDivElement>(null);
-  const [currentPage, setCurrentPage] = useState(0);
-  const [totalPages, setTotalPages] = useState(1);
-
-  const recalcPages = () => {
-    const vp = viewportRef.current;
-    if (!vp) return;
-    const pages = Math.max(1, Math.ceil(vp.scrollWidth / vp.clientWidth));
-    setTotalPages(pages);
-    const page = Math.round(vp.scrollLeft / vp.clientWidth);
-    setCurrentPage(page);
-  };
-
-  useEffect(() => {
-    const vp = viewportRef.current;
-    if (!vp) return;
-
-    const onScroll = () => {
-      const page = Math.round(vp.scrollLeft / vp.clientWidth);
-      setCurrentPage(page);
-    };
-
-    vp.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", recalcPages);
-    recalcPages();
-
-    return () => {
-      vp.removeEventListener("scroll", onScroll as EventListener);
-      window.removeEventListener("resize", recalcPages);
-    };
-  }, []);
-
-  const scrollByPage = (dir: 1 | -1) => {
-    const vp = viewportRef.current;
-    if (!vp) return;
-    const delta = dir * vp.clientWidth;
-    vp.scrollBy({ left: delta, behavior: "smooth" });
-  };
-
-  const goToPage = (pageIndex: number) => {
-    const vp = viewportRef.current;
-    if (!vp) return;
-    const clamped = Math.max(0, Math.min(totalPages - 1, pageIndex));
-    vp.scrollTo({ left: clamped * vp.clientWidth, behavior: "smooth" });
-  };
+  // Note: simple scroll-snap carousel without controls
 
   return (
     <div className={`carousel-container ${className || ""}`}>
@@ -85,24 +42,7 @@ export const Carousel: React.FC<CarouselProps> = ({
           </div>
         </div>
 
-        <div className="carousel-controls">
-          <button
-            className="carousel-btn prev-btn"
-            onClick={() => scrollByPage(-1)}
-            aria-label="Previous"
-            disabled={currentPage <= 0}
-          >
-            ‹
-          </button>
-          <button
-            className="carousel-btn next-btn"
-            onClick={() => scrollByPage(1)}
-            aria-label="Next"
-            disabled={currentPage >= totalPages - 1}
-          >
-            ›
-          </button>
-        </div>
+        {/* Controls removed per request */}
       </div>
     </div>
   );
