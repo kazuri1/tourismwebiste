@@ -4,6 +4,7 @@ import { SectionTitle } from "../components/atoms/SectionTitle";
 import { Carousel } from "../components/Carousel";
 import ClientCategoryToggle from "../components/ClientCategoryToggle";
 import ClientTabs from "../components/ClientTabs";
+import { GoogleMap } from "../components/GoogleMap";
 
 export default function HomePage() {
   return (
@@ -18,9 +19,9 @@ export default function HomePage() {
         muted
       >
         <div style={{ textAlign: "center" }}>
-          <h1 style={{ margin: 0, fontSize: "3rem", color: "white", textShadow: "2px 2px 4px rgba(0,0,0,0.7)" }}>Welcome to Mysore</h1>
-          <p style={{ marginTop: 12, fontSize: "1.125rem", color: "white", textShadow: "1px 1px 2px rgba(0,0,0,0.7)" }}>
-            Experience the royal heritage, magnificent palaces, and vibrant culture of Karnataka's cultural capital.
+          <h1 style={{ margin: 0, fontSize: "3rem" }}>Explore Mysore</h1>
+          <p style={{ marginTop: 12, fontSize: "1.125rem" }}>
+            Discover destinations, experiences, and plan your trip.
           </p>
         </div>
       </VideoHero>
@@ -140,6 +141,43 @@ export default function HomePage() {
                   "https://images.unsplash.com/photo-1526779259212-939e64788e3c?w=1200&q=80&auto=format&fit=crop",
                 title: "St. Philomena's Church",
                 category: "Church",
+              },
+            ]}
+          />
+        </div>
+      </div>
+      <div id="mysore-map" style={{ margin: "32px 16px 16px" }}>
+        <SectionTitle>Mysore Map</SectionTitle>
+      </div>
+      <div style={{ marginTop: "24px", marginBottom: "80px" }}>
+        <div style={{ maxWidth: "100%", margin: "0 auto", padding: "0 16px" }}>
+          <GoogleMap
+            center={{ lat: 12.2958, lng: 76.6394 }}
+            zoom={13}
+            markers={[
+              {
+                id: "palace",
+                position: { lat: 12.3051, lng: 76.6552 },
+                title: "Mysore Palace",
+                description: "The magnificent palace of the Wodeyar dynasty",
+              },
+              {
+                id: "chamundi",
+                position: { lat: 12.2716, lng: 76.6594 },
+                title: "Chamundi Hills",
+                description: "Sacred hill with Chamundeshwari Temple",
+              },
+              {
+                id: "brindavan",
+                position: { lat: 12.4144, lng: 76.6614 },
+                title: "Brindavan Gardens",
+                description: "Beautiful terraced garden with musical fountain",
+              },
+              {
+                id: "church",
+                position: { lat: 12.3126, lng: 76.6522 },
+                title: "St. Philomena's Church",
+                description: "Gothic-style cathedral with twin spires",
               },
             ]}
           />

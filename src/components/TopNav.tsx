@@ -60,7 +60,7 @@ export const TopNav: React.FC<TopNavProps> = ({
     {
       id: "mysore-map",
       label: "Mysore Map",
-      href: "#",
+      href: "#mysore-map",
     },
     {
       id: "about-us",
@@ -72,51 +72,51 @@ export const TopNav: React.FC<TopNavProps> = ({
   return (
     <div className="tourism-topnav-wrapper">
       <SimpleTopNav
-      brandLogo={
-        <Image
-          src={mysoreLogo}
-          alt="Mysore Tourism Logo"
-          height={32}
-          style={{ width: "auto" }}
-        />
-      }
-      brandName=""
-      brandTitle=""
-      items={navItems}
-      showBrand={showBrand}
-      showNavigation={showNavigation}
-      showThemeSwitcher={showThemeSwitcher}
-      afterNavigation={
-        <div className="topnav-actions">
-          {!rightButton ? (
-            <Button
-              variant="filled"
-              size="sm"
-              onClick={() => console.log("Book Now clicked!")}
-            >
-              Book Now
-            </Button>
-          ) : (
-            rightButton
-          )}
-        </div>
-      }
-      className={`tourism-topnav ${className || ""}`}
-      sx={{
-        fontFamily:
-          "Satoshi, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
-        // Bind Pulse UI nav tokens to our theme variables for live theme switching
-        "--pulseui-nav-bg": "var(--color-surface)",
-        "--pulseui-nav-border": "var(--color-border)",
-        "--pulseui-nav-text": "var(--color-on-surface)",
-        "--pulseui-nav-hover": "var(--color-hover-surface)",
-        "--pulseui-nav-active": "var(--color-primary)",
-        "--pulseui-nav-font-size": "0.875rem",
-        "--pulseui-nav-font-weight": "500",
-        ...sx,
-      }}
-      style={style}
-    />
+        brandLogo={
+          <Image
+            src={mysoreLogo}
+            alt="Mysore Tourism Logo"
+            height={32}
+            style={{ width: "auto" }}
+          />
+        }
+        brandName=""
+        brandTitle=""
+        items={navItems}
+        showBrand={showBrand}
+        showNavigation={showNavigation}
+        showThemeSwitcher={showThemeSwitcher}
+        afterNavigation={
+          <div className="topnav-actions">
+            {!rightButton ? (
+              <Button
+                variant="filled"
+                size="sm"
+                onClick={() => console.log("Book Now clicked!")}
+              >
+                Book Now
+              </Button>
+            ) : (
+              rightButton
+            )}
+          </div>
+        }
+        className={`tourism-topnav ${className || ""}`}
+        sx={{
+          fontFamily:
+            "Satoshi, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+          // Bind Pulse UI nav tokens to our theme variables for live theme switching
+          "--pulseui-nav-bg": "var(--color-surface)",
+          "--pulseui-nav-border": "var(--color-border)",
+          "--pulseui-nav-text": "var(--color-on-surface)",
+          "--pulseui-nav-hover": "var(--color-hover-surface)",
+          "--pulseui-nav-active": "var(--color-primary)",
+          "--pulseui-nav-font-size": "0.875rem",
+          "--pulseui-nav-font-weight": "500",
+          ...sx,
+        }}
+        style={style}
+      />
     </div>
   );
 };

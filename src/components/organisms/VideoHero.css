@@ -21,5 +21,35 @@
   justify-content: center;
   padding: 16px;
   color: white;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.4) 0%,
+    rgba(0, 0, 0, 0.2) 50%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
 }
 
+.video-hero__overlay h1 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+
+.video-hero__overlay p {
+  font-weight: 400;
+  opacity: 0.95;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Responsive text sizing */
+@media (max-width: 768px) {
+  .video-hero__overlay h1 {
+    font-size: 2rem !important;
+  }
+
+  .video-hero__overlay p {
+    font-size: 1rem !important;
+  }
+}
