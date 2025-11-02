@@ -140,7 +140,7 @@ export default function HomePage() {
       }}
     >
       <VideoHero
-        src={process.env.NEXT_PUBLIC_VIDEO_URL || "/mysurvideo.mp4"}
+        src={process.env.NEXT_PUBLIC_VIDEO_URL || "https://youtu.be/2clcTLPNdfg"}
         poster="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&q=80&auto=format&fit=crop"
         height={isMobile ? "50vh" : "70vh"}
         controls={false}
