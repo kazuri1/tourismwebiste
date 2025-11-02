@@ -431,6 +431,8 @@ export default function HomePage() {
           right: "50%",
           marginLeft: "-50vw",
           marginRight: "-50vw",
+          overflow: "hidden",
+          backgroundColor: "#1a1a1a",
         }}
       >
         <img
@@ -439,8 +441,8 @@ export default function HomePage() {
           style={{
             width: "100%",
             height: "auto",
-            maxHeight: isMobile ? "auto" : isTablet ? "350px" : "400px",
-            minHeight: isMobile ? "600px" : isTablet ? "320px" : "350px",
+            maxHeight: isMobile ? "500px" : isTablet ? "350px" : "400px",
+            minHeight: isMobile ? "450px" : isTablet ? "320px" : "350px",
             objectFit: "cover",
             display: "block",
             position: "absolute",
@@ -454,7 +456,7 @@ export default function HomePage() {
             position: "relative",
             zIndex: 1,
             padding: isMobile
-              ? "40px 20px 20px"
+              ? "30px 16px 20px"
               : isTablet
               ? "50px 40px 30px"
               : "60px 100px 40px",

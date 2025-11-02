@@ -12,8 +12,8 @@ import "../components/atoms/ImageTitleCard.css";
 import "../components/atoms/Tabs.css";
 
 import React from "react";
-import { TopNav } from "../components/TopNav";
-import { ThemeSetup } from "../components/ThemeSetup";
+import ThemeSetupClient from "../components/ThemeSetupClient";
+import TopNavClient from "../components/TopNavClient";
 
 const roboto = Roboto({
   weight: ["300", "400", "500", "700"],
@@ -21,6 +21,7 @@ const roboto = Roboto({
   display: "swap",
 });
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const metadata: Metadata = {
   title: "Tourism Website",
   description: "Next.js app",
@@ -35,10 +36,14 @@ export default function RootLayout({
     <html lang="en" data-theme="light" data-env={process.env.NODE_ENV}>
       <body
         className={roboto.className}
-        style={{ background: "var(--color-surface)" }}
+        style={{ 
+          background: "var(--color-surface)",
+          overflowX: "hidden",
+          width: "100%",
+        }}
       >
-        <ThemeSetup />
-        <TopNav showThemeSwitcher={true} />
+        <ThemeSetupClient />
+        <TopNavClient showThemeSwitcher={true} />
         <main style={{ paddingTop: 72 }}>{children}</main>
       </body>
     </html>
