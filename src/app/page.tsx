@@ -140,7 +140,9 @@ export default function HomePage() {
       }}
     >
       <VideoHero
-        src={process.env.NEXT_PUBLIC_VIDEO_URL || "https://youtu.be/2clcTLPNdfg"}
+        src={
+          process.env.NEXT_PUBLIC_VIDEO_URL || "https://youtu.be/2clcTLPNdfg"
+        }
         poster="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&q=80&auto=format&fit=crop"
         height={isMobile ? "50vh" : "70vh"}
         controls={false}
@@ -250,6 +252,61 @@ export default function HomePage() {
             items={filteredDestinations}
           />
         </div>
+      </div>
+      <div
+        style={{
+          margin: `${sectionMarginTop} 0 ${isMobile ? "12px" : "16px"}`,
+        }}
+      >
+        <SectionTitle>Upcoming Events</SectionTitle>
+      </div>
+      <div
+        style={{
+          marginTop: carouselMarginTop,
+          marginBottom: carouselMarginBottom,
+        }}
+      >
+        <Carousel
+          onItemClick={handleItemClick}
+          items={[
+            {
+              id: "event-1",
+              imageUrl: "/mysore-palace.png",
+              title: "Mysore Dasara Festival",
+              category: "Festival",
+            },
+            {
+              id: "event-2",
+              imageUrl: "/chamundihills.png",
+              title: "Heritage Walk Tour",
+              category: "Tour",
+            },
+            {
+              id: "event-3",
+              imageUrl: "/brindavan.png",
+              title: "Garden Music Festival",
+              category: "Music",
+            },
+            {
+              id: "event-4",
+              imageUrl: "/st-philomena.png",
+              title: "Christmas Celebrations",
+              category: "Religious",
+            },
+            {
+              id: "event-5",
+              imageUrl: "/devaraja-market.png",
+              title: "Local Food Festival",
+              category: "Food",
+            },
+            {
+              id: "event-6",
+              imageUrl: "/ranganathittu.png",
+              title: "Bird Watching Workshop",
+              category: "Nature",
+            },
+          ]}
+        />
       </div>
       <div
         style={{
