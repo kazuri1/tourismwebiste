@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Roboto } from "next/font/google";
 import "pulseui-base/styles";
 import "../styles/theme.css";
 import "../index.css";
@@ -14,6 +15,12 @@ import React from "react";
 import { TopNav } from "../components/TopNav";
 import { ThemeSetup } from "../components/ThemeSetup";
 
+const roboto = Roboto({
+  weight: ["300", "400", "500", "700"],
+  subsets: ["latin"],
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "Tourism Website",
   description: "Next.js app",
@@ -26,7 +33,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" data-theme="light" data-env={process.env.NODE_ENV}>
-      <body style={{ background: "var(--color-surface)" }}>
+      <body
+        className={roboto.className}
+        style={{ background: "var(--color-surface)" }}
+      >
         <ThemeSetup />
         <TopNav showThemeSwitcher={true} />
         <main style={{ paddingTop: 72 }}>{children}</main>

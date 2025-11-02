@@ -1,5 +1,7 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 // Styles now imported globally from app/layout.tsx in Next.js
 import { ImageTitleCard } from "./atoms/ImageTitleCard";
 
@@ -22,7 +24,51 @@ export const Carousel: React.FC<CarouselProps> = ({
   className,
 }) => {
   const viewportRef = useRef<HTMLDivElement>(null);
-  // Note: simple scroll-snap carousel without controls
+  const [showRightArrow, setShowRightArrow] = useState(true);
+  const [showLeftArrow, setShowLeftArrow] = useState(false);
+
+  const checkScrollPosition = () => {
+    if (viewportRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = viewportRef.current;
+      const isAtStart = scrollLeft <= 10;
+      const isAtEnd = scrollLeft + clientWidth >= scrollWidth - 10;
+      setShowLeftArrow(!isAtStart);
+      setShowRightArrow(!isAtEnd);
+    }
+  };
+
+  useEffect(() => {
+    const viewport = viewportRef.current;
+    if (viewport) {
+      checkScrollPosition();
+      viewport.addEventListener("scroll", checkScrollPosition);
+      window.addEventListener("resize", checkScrollPosition);
+      return () => {
+        viewport.removeEventListener("scroll", checkScrollPosition);
+        window.removeEventListener("resize", checkScrollPosition);
+      };
+    }
+  }, [items]);
+
+  const scrollRight = () => {
+    if (viewportRef.current) {
+      const scrollAmount = viewportRef.current.clientWidth * 0.8;
+      viewportRef.current.scrollBy({
+        left: scrollAmount,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  const scrollLeft = () => {
+    if (viewportRef.current) {
+      const scrollAmount = viewportRef.current.clientWidth * 0.8;
+      viewportRef.current.scrollBy({
+        left: -scrollAmount,
+        behavior: "smooth",
+      });
+    }
+  };
 
   return (
     <div className={`carousel-container ${className || ""}`}>
@@ -42,7 +88,27 @@ export const Carousel: React.FC<CarouselProps> = ({
           </div>
         </div>
 
-        {/* Controls removed per request */}
+        {showLeftArrow && (
+          <button
+            className="carousel-arrow-left"
+            onClick={scrollLeft}
+            aria-label="Scroll left"
+            type="button"
+          >
+            <ChevronLeftIcon />
+          </button>
+        )}
+
+        {showRightArrow && (
+          <button
+            className="carousel-arrow-right"
+            onClick={scrollRight}
+            aria-label="Scroll right"
+            type="button"
+          >
+            <ChevronRightIcon />
+          </button>
+        )}
       </div>
     </div>
   );

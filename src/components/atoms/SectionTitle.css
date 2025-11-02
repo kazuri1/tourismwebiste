@@ -18,3 +18,9 @@
   background: var(--color-primary, #ff8064);
   border-radius: 2px;
 }
+
+@media (max-width: 768px) {
+  .section-title-text {
+    font-size: 1.5rem;
+  }
+}

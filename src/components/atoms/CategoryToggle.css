@@ -1,12 +1,36 @@
 .category-toggle {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: 1fr;
+  display: flex;
+  flex-wrap: nowrap;
   gap: var(--spacing-lg);
   padding: var(--spacing-md);
   border-radius: var(--radius-xl);
   background: var(--color-surface-1, #fafafa);
   border: 1px solid var(--color-divider, #e0e0e0);
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.category-toggle::-webkit-scrollbar {
+  height: 6px;
+}
+
+.category-toggle::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 3px;
+}
+
+.category-toggle::-webkit-scrollbar-thumb {
+  background: var(--color-divider, #e0e0e0);
+  border-radius: 3px;
+}
+
+.category-toggle::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gray-4, #d0d0d0);
 }
 
 .toggle-item {
@@ -22,6 +46,8 @@
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   font-weight: 600;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .toggle-item:hover {
@@ -50,10 +76,26 @@
   font-size: 1rem;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .category-toggle {
-    grid-auto-flow: row;
-    grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-sm);
+    padding: calc(var(--spacing-sm) + 4px) var(--spacing-sm);
+    min-height: 52px;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .toggle-item {
+    padding: var(--spacing-sm) calc(var(--spacing-sm) - 2px);
+    gap: var(--spacing-xs, 4px);
+    min-height: 44px;
+  }
+
+  .toggle-icon {
+    font-size: 20px;
+  }
+
+  .toggle-label {
+    font-size: 0.875rem;
   }
 }

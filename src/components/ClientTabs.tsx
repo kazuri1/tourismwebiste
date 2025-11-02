@@ -11,3 +11,4 @@ export default function ClientTabs() {
   ];
   return <Tabs value={value} items={items} onChange={setValue} />;
 }
+
