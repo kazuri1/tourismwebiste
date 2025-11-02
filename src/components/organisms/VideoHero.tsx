@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import "./VideoHero.css";
 
 export interface VideoHeroProps {
@@ -57,30 +58,35 @@ export const VideoHero: React.FC<VideoHeroProps> = ({
   const isYouTube = isYouTubeUrl(src);
   const youtubeId = isYouTube ? getYouTubeId(src) : null;
 
-  // Build YouTube embed URL with best quality and autoplay settings
-  const getYouTubeEmbedUrl = (videoId: string): string => {
-    const params = new URLSearchParams({
-      autoplay: autoPlay ? "1" : "0",
-      mute: muted ? "1" : "0",
-      loop: loop ? "1" : "0",
-      playlist: loop ? videoId : "",
-      controls: controls ? "1" : "0",
-      rel: "0", // Don't show related videos
-      modestbranding: "1", // Minimal YouTube branding
-      iv_load_policy: "3", // Don't show annotations
-      hd: "1", // Request HD quality
-      playsinline: "1", // Allow inline playback on mobile
-    });
-    return `https://www.youtube.com/embed/${videoId}?${params.toString()}`;
-  };
+  const [embedUrl, setEmbedUrl] = useState<string>("");
 
-  if (isYouTube && youtubeId) {
+  // Build YouTube embed URL with best quality and autoplay settings
+  useEffect(() => {
+    if (isYouTube && youtubeId) {
+      const params = new URLSearchParams({
+        autoplay: autoPlay ? "1" : "0",
+        mute: muted ? "1" : "0",
+        loop: loop ? "1" : "0",
+        playlist: loop ? youtubeId : "",
+        controls: controls ? "1" : "0",
+        rel: "0", // Don't show related videos
+        modestbranding: "1", // Minimal YouTube branding
+        iv_load_policy: "3", // Don't show annotations
+        enablejsapi: "1", // Enable JavaScript API for autoplay
+        playsinline: "1", // Allow inline playback on mobile
+        origin: window.location.origin,
+      });
+      setEmbedUrl(`https://www.youtube.com/embed/${youtubeId}?${params.toString()}`);
+    }
+  }, [isYouTube, youtubeId, autoPlay, muted, loop, controls]);
+
+  if (isYouTube && youtubeId && embedUrl) {
     return (
       <section className={`video-hero ${className || ""}`} style={inlineStyle}>
         <iframe
           className="video-hero__media"
-          src={getYouTubeEmbedUrl(youtubeId)}
-          allow="autoplay; encrypted-media"
+          src={embedUrl}
+          allow="autoplay; encrypted-media; accelerometer; gyroscope; picture-in-picture; fullscreen"
           allowFullScreen
           style={{
             width: "100%",
@@ -92,8 +98,11 @@ export const VideoHero: React.FC<VideoHeroProps> = ({
             objectFit: "cover",
           }}
           title="Video hero"
+          loading="eager"
         />
-        {children ? <div className="video-hero__overlay">{children}</div> : null}
+        {children ? (
+          <div className="video-hero__overlay">{children}</div>
+        ) : null}
       </section>
     );
   }
