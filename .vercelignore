@@ -1,0 +1,6 @@
+.next/
+node_modules/
+src/assets/mysurvideo.mp4
+storybook-static/
+tsconfig.tsbuildinfo
+
